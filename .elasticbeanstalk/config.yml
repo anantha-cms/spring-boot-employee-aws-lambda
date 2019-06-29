@@ -1,0 +1,13 @@
+branch-defaults:
+  default:
+    environment: java-test-env
+deploy:
+  artifact: target/demo-0.0.1-SNAPSHOT.jar
+global:
+  application_name: java-demo
+  branch: null
+  default_ec2_keyname: null
+  default_platform: Java 8
+  default_region: us-west-1
+  sc: null
+  workspace_type: Application
