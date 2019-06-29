@@ -9,5 +9,6 @@ global:
   default_ec2_keyname: null
   default_platform: Java 8
   default_region: us-west-1
+  profile: eb-cli
   sc: null
   workspace_type: Application
