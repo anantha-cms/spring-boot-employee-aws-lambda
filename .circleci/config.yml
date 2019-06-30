@@ -60,6 +60,11 @@ jobs:
           export PROJECT_VERSION=$(cat /tmp/workspace/version.txt)
           aws s3 cp /tmp/workspace/demo-0.0.1-SNAPSHOT.jar s3://java-test-bucket-123/${PROJECT_VERSION}/demo-0.0.1-SNAPSHOT.jar --region us-west-1
           aws elasticbeanstalk create-application-version --application-name app1 --version-label ${PROJECT_VERSION} --source-bundle S3Bucket="java-test-bucket-123",S3Key="${PROJECT_VERSION}/demo-0.0.1-SNAPSHOT.jar" --region us-west-1
+          aws elasticbeanstalk update-environment \
+          	--application-name app1 \
+          	--version-label ${PROJECT_VERSION} \
+          	--environment-name app1-dev \
+          	--region us-west-1
 
 workflows:
   version: 2
