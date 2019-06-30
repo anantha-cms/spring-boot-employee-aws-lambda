@@ -62,7 +62,7 @@ jobs:
           aws elasticbeanstalk create-application-version --application-name app1 \
             --version-label ${PROJECT_VERSION} \
             --source-bundle S3Bucket="java-test-bucket-123",S3Key="${PROJECT_VERSION}/demo.jar" \
-            --region us-east-1
+            --region us-west-1
           aws elasticbeanstalk update-environment \
           	--application-name app1 \
           	--version-label ${PROJECT_VERSION} \
