@@ -74,7 +74,7 @@ jobs:
           name: Deploy to EB
           command: |
             eb use java-test-env --profile eb-cli
-            eb deploy -v --staged --profile eb-cli
+            eb deploy -v --staged --profile eb-cli --region us-west-1
 
 workflows:
   version: 2
