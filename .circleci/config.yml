@@ -95,7 +95,7 @@ jobs:
       - run:
           name: Deploy to EB
           command: |
-            eb use app1-dev --profile eb-cli --region us-west-1
+            eb use app1-dev --profile eb-cli
             eb deploy -v --staged --profile eb-cli
 
 workflows:
