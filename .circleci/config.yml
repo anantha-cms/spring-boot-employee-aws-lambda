@@ -73,7 +73,7 @@ jobs:
       - run:
           name: Deploy to EB
           command: |
-            eb use java-test-env2 --profile eb-cli --region us-west-1
+            eb use java-test-env --profile eb-cli --region us-west-1
             eb deploy -v --staged --profile eb-cli --region us-west-1
 
 workflows:
