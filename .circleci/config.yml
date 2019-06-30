@@ -70,6 +70,28 @@ jobs:
             echo "[profile eb-cli]" > ~/.aws/config
             echo "aws_access_key_id=$AWS_ACCESS_KEY_ID" >> ~/.aws/config
             echo "aws_secret_access_key=$AWS_SECRET_ACCESS_KEY" >> ~/.aws/config
+
+      - run:
+          name: Create AWS eb config manually
+          command: |
+            mkdir -p ~/repo/.elasticbeanstalk
+            touch ~/repo/.elasticbeanstalk/config.yml
+            chmod 600 ~/repo/.elasticbeanstalk/config.yml
+            echo "branch-defaults:" > ~/repo/.elasticbeanstalk/config.yml
+            echo "  default:" >> ~/repo/.elasticbeanstalk/config.yml
+            echo "    environment: app1-dev" >> ~/repo/.elasticbeanstalk/config.yml
+            echo "deploy:" >> ~/repo/.elasticbeanstalk/config.yml
+            echo "  artifact: target/demo-0.0.1-SNAPSHOT.jar" >> ~/repo/.elasticbeanstalk/config.yml
+            echo "global:" >> ~/repo/.elasticbeanstalk/config.yml
+            echo "  application_name: app1" >> ~/repo/.elasticbeanstalk/config.yml
+            echo "  branch: null" >> ~/repo/.elasticbeanstalk/config.yml
+            echo "  default_ec2_keyname: null" >> ~/repo/.elasticbeanstalk/config.yml
+            echo "  default_platform: Java 8" >> ~/repo/.elasticbeanstalk/config.yml
+            echo "  default_region: us-west-1" >> ~/repo/.elasticbeanstalk/config.yml
+            echo "  profile: eb-cli" >> ~/repo/.elasticbeanstalk/config.yml
+            echo "  sc: null" >> ~/repo/.elasticbeanstalk/config.yml
+            echo "  workspace_type: Application" >> ~/repo/.elasticbeanstalk/config.yml
+
       - run:
           name: Deploy to EB
           command: |
